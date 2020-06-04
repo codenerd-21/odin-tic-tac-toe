@@ -26,6 +26,41 @@ img {
 
 /* CSS Reset End */
 
+body {
+	background-color: #dcd294;
+}
+
+h1 {
+	text-align: center;
+	font-size: 75px;
+	color: #2f1e0a;
+
+}
+
+td {
+	height: 200px;
+	width: 200px;
+	font-size: 150px;
+}
+
+
+.rows {
+	display:	grid;
+	grid-template-columns: 200px 200px 200px;
+	background-color: #90EE90;
+}
+
+.cells {
+	border: 2px solid black;
+	text-align:	center;
+}
+
+
+#table {
+	margin: auto;
+	color: #624a2d;
+}
+
 
 
 
