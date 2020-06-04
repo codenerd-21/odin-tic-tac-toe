@@ -10,42 +10,50 @@
 		2). If you need multiple - use a factory.
 */
 
-//	Declare Variables
-
-
-//	Declare Constants
-
-
-//	Declare DOM Cached Elements
-
-
-//	Event Listeners
-
-
-//	Functions
-
 
 //	Create Factory Function for Player
-const player = (name, symbol) => {
+const Player = (name, symbol) => {
 	return { name, symbol };
 };
 
 
 //	Create Module for Game Board
 const gameBoard = (function () {
-	//board, reset, sounds
-	let board = [];
+	let board = [null, null, null, null, null, null, null, null, null];
+	const allCells = document.getElementsByClassName('cells');
+
+	console.log('test1');
+
+	const renderBoard = () => {
+		for (let i = 0; i < allCells.length; i++) {
+			allCells[i].addEventListener('click', click);
+		}
+	}
+	console.log('test2');
+	const click = (e) => {
+		let id = e.target.id;
+		console.log(id);
+		console.log(typeof (id));
+	}
+	console.log('test3');
+
 	return {
 		board,
+		renderBoard,
 	};
 })();
+
+gameBoard.renderBoard();
 
 
 //	Create Module for Game Logic
 const gameLogic = (function () {
+	let winner;
+	let turn;
 	//winner, turn, tie
 	return {
-
+		winner,
+		turn,
 	};
 })();
 
