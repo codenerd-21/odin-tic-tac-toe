@@ -22,24 +22,25 @@ const gameBoard = (function () {
 	let board = [null, null, null, null, null, null, null, null, null];
 	const allCells = document.getElementsByClassName('cells');
 
-	console.log('test1');
 
 	const renderBoard = () => {
 		for (let i = 0; i < allCells.length; i++) {
 			allCells[i].addEventListener('click', click);
 		}
 	}
-	console.log('test2');
+
+
 	const click = (e) => {
-		let id = e.target.id;
+		let id = parseInt(e.target.id);
 		console.log(id);
 		console.log(typeof (id));
 	}
-	console.log('test3');
+
 
 	return {
 		board,
 		renderBoard,
+		click,
 	};
 })();
 
