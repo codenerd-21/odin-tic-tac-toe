@@ -25,8 +25,8 @@ const gameBoard = (function () {
 	let turn = 1;
 	const allCells = document.getElementsByClassName('cells');
 
-
 	const init = () => {
+		document.querySelector('button').addEventListener('click', resetButton);
 		board = [null, null, null, null, null, null, null, null, null];
 		renderBoard();
 	}
@@ -58,7 +58,11 @@ const gameBoard = (function () {
 		} else {
 			console.log(`Click on a Valid Cell`);
 		}
-		gameLogic.checkWinner(board);
+		gameLogic.checkWinner(board, id);
+	}
+
+	const resetButton = () => {
+		location.reload();
 	}
 
 	return {
@@ -75,23 +79,27 @@ const gameLogic = (function () {
 	let reset;
 	let winner;
 
-	const checkWinner = (board) => {
+	const checkWinner = (board, id) => {
+		const display = document.getElementById('display-msg');
+		const cellText = document.getElementById(`${id}`).textContent;
+		const winMsg = `Congratulations!!! The winner is ${cellText}`;
+
 		if (board[0] != null && board[0] === board[1] && board[0] === board[2]) {
-			alert(`Game Over: The winner is ${board[0]}`);
+			display.innerHTML = winMsg;
 		} else if (board[3] != null && board[3] === board[4] && board[3] === board[5]) {
-			alert(`Game Over: The winner is ${board[3]}`);
+			display.innerHTML = winMsg;
 		} else if (board[6] != null && board[6] === board[7] && board[6] === board[8]) {
-			alert(`Game Over: The winner is ${board[6]}`);
+			display.innerHTML = winMsg;
 		} else if (board[0] != null && board[0] === board[3] && board[0] === board[6]) {
-			alert(`Game Over: The winner is ${board[0]}`);
+			display.innerHTML = winMsg;
 		} else if (board[1] != null && board[1] === board[4] && board[1] === board[7]) {
-			alert(`Game Over: The winner is ${board[1]}`);
+			display.innerHTML = winMsg;
 		} else if (board[2] != null && board[2] === board[5] && board[2] === board[8]) {
-			alert(`Game Over: The winner is ${board[2]}`);
+			display.innerHTML = winMsg;
 		} else if (board[0] != null && board[0] === board[4] && board[0] === board[8]) {
-			alert(`Game Over: The winner is ${board[0]}`);
+			display.innerHTML = winMsg;
 		} else if (board[6] != null && board[6] === board[4] && board[6] === board[2]) {
-			alert(`Game Over: The winner is ${board[6]}`);
+			display.innerHTML = winMsg;
 		} else {
 			checkTie(board);
 		}
