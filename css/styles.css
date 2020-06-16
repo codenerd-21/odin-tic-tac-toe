@@ -36,6 +36,16 @@ h1 {
 	color: #2f1e0a;
 }
 
+p {
+	display: inline-block;
+	font-size: 50px;
+	font-weight: bold;
+	color: orange;
+	border: 2px solid black;
+	margin: 15px;
+	animation: blink 5s infinite;
+}
+
 td {
 	height: 200px;
 	width: 200px;
@@ -68,6 +78,16 @@ button {
 #table {
 	margin: auto;
 	color: #624a2d;
+}
+
+#para {
+	text-align: center;
+}
+
+@keyframes blink{
+	0%	{   color: orange;  }
+	50%	{ 	color: green; 	}
+	100%{   color: blue;   }
 }
 
 

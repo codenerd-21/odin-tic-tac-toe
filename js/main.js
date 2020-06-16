@@ -75,14 +75,10 @@ const gameBoard = (function () {
 //	Create Module for Game Logic
 const gameLogic = (function () {
 
-	let start;
-	let reset;
-	let winner;
-
 	const checkWinner = (board, id) => {
 		const display = document.getElementById('display-msg');
 		const cellText = document.getElementById(`${id}`).textContent;
-		const winMsg = `Congratulations!!! The winner is ${cellText}`;
+		const winMsg = `Congratulations!!!  The winner is ${cellText}`;
 
 		if (board[0] != null && board[0] === board[1] && board[0] === board[2]) {
 			display.innerHTML = winMsg;
